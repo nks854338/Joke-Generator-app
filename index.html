@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Lets some fun</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: #ffffff;
+            text-align: center;
+            height: 9vmin;
+            font-size: 5vmin;
+        }
+
+        .container {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .boxes {
+            background-color: rgb(0, 0, 0);
+            color: #ffffff;
+            font-size: 3vmin;
+            height: 20vh;
+            width: 90vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            border-radius: 20px;
+            padding: 7vmin;
+        }
+
+        #btn {
+            background-color: black;
+            color: #ffffff;
+            border-radius: 20px;
+            height: 8vmin;
+            font-size: 4vmin;
+        }
+
+
+        @media(max-width:575px) {
+
+            .container {
+               gap: 10vmin;
+            }
+
+            .boxes {
+                height: 15vh;
+                max-width: 30vh;
+            padding: 4vmin;
+            }
+
+            #btn{
+                font-size: 2vmin;
+                max-width: 99%;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Do Somthing Funny</h1>
+    <div class="container">
+        <div class="image">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5563b587207923.60fb1d6c0d008.gif"
+                height="270vmin" alt="joke_img" class="img">
+        </div>
+        <div class="boxes">
+            <p id="box"></p>
+        </div>
+        <button id="btn">Generate joke</button>
+    </div>
+</body>
+<script>
+    let jokecon = document.getElementById("box");
+    let btn = document.getElementById("btn");
+    let url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+
+
+
+    let getJoke = () => {
+        fetch(url)
+            .then(data => data.json())
+            .then(jokes => {
+                jokecon.innerText = `${jokes.joke}`;
+            });
+    }
+    btn.addEventListener('click', getJoke);
+    getJoke();
+
+</script>
+
+</html>
