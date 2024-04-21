@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="llZHxPuw_hrET1haCO6q7Jt96C3u8XgPMgZF16p7vlk" /><!--verfication code-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Lets some fun</title>
@@ -26,13 +25,14 @@
             color: #ffffff;
             text-align: center;
             height: 9vmin;
-            font-size: 5vmin;
+            font-size: 35px;
         }
 
         .container {
             display: grid;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
+            margin: auto;
         }
 
         .image {
@@ -41,12 +41,16 @@
             align-items: center;
         }
 
+        .image img {
+            height: 40vmin;
+        }
+
         .boxes {
             background-color: rgb(0, 0, 0);
             color: #ffffff;
             font-size: 3vmin;
-            height: 20vh;
-            width: 90vh;
+            height: 20vmin;
+            width: 90%;
             display: flex;
             justify-content: center;
             text-align: center;
@@ -59,6 +63,7 @@
             background-color: black;
             color: #ffffff;
             border-radius: 20px;
+            width: 90%;
             height: 8vmin;
             font-size: 4vmin;
         }
@@ -67,30 +72,43 @@
         @media(max-width:575px) {
 
             .container {
-               gap: 10vmin;
+                gap: 10vmin;
+                width: fit-content;
+                margin: 2px;
+            }
+
+            h1 {
+                height: 12vmin;
+                font-size: 18px;
             }
 
             .boxes {
-                height: 15vh;
-                max-width: 30vh;
-            padding: 4vmin;
+                font-size: 15px;
+                height:fit-content;
+                min-width: 95%;
+                padding: 32px 8px;
             }
 
-            #btn{
-                font-size: 2vmin;
-                max-width: 99%;
+            #btn {
+                font-size: 16px;
+                height: 37px;
+                width: 100%;
                 border-radius: 10px;
+            }
+
+            .image img {
+                height: 80vmin;
             }
         }
     </style>
 </head>
 
 <body>
-    <h1>Do Somthing Funny</h1>
+    <h1>Let's have some fun</h1>
     <div class="container">
         <div class="image">
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5563b587207923.60fb1d6c0d008.gif"
-                height="270vmin" alt="joke_img" class="img">
+                alt="joke_img" class="img">
         </div>
         <div class="boxes">
             <p id="box"></p>
