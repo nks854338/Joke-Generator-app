@@ -66,6 +66,7 @@
             border-radius: 20px;
             font-size: 4vmin;
             height: 8vmin;
+            cursor: pointer;
         }
 
 
@@ -84,7 +85,7 @@
 
             .boxes {
                 font-size: 15px;
-                height:fit-content;
+                height: fit-content;
                 padding: 32px 8px;
             }
 
@@ -107,13 +108,12 @@
     <h1>Let's have some fun</h1>
     <div class="container">
         <div class="image">
-            <img src="#"
-                alt="joke_img" class="img" id="img">
+            <img src="#" alt="joke_img" class="img" id="img">
         </div>
         <div class="boxes">
             <p id="box"></p>
         </div>
-        <button id="btn">Generate joke</button>
+        <button id="btn" onclick="getJoke()">Generate joke</button>
     </div>
 </body>
 <script>
@@ -122,38 +122,41 @@
     let btn = document.getElementById("btn");
     let url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
 
-    let number=Math.floor(Math.random()*9);
-    console.log(number);
-    if(number==0){
-        document.getElementById("img").src='https://i.pinimg.com/originals/31/5d/a3/315da3572e424e6f7169bf53495a4b47.gif';
+    let number = Math.floor(Math.random() * 9);
+    function GetGIF(number) {
+        if (number == 0) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/31/5d/a3/315da3572e424e6f7169bf53495a4b47.gif';
+        }
+        else if (number == 1) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/90/fe/97/90fe97c10b28b70a0caefd9866f22e6b.gif';
+        }
+        else if (number == 2) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/26/7f/ea/267fea8e5d973161c85c85e376a31333.gif';
+        }
+        else if (number == 3) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/d6/28/8e/d6288e9f26d1a851f1b02ea0383bcfbb.gif';
+        }
+        else if (number == 4) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/40/9d/5e/409d5e5f8b5041230fdc833bc09e057e.gif';
+        }
+        else if (number == 5) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/ac/52/55/ac5255d362851dd119c2e8dea9b2c2e3.gif';
+        }
+        else if (number == 6) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/8e/6a/b2/8e6ab2c69dfb0ead956a72066d08763f.gif';
+        }
+        else if (number == 7) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/89/e7/04/89e704668cc717794fd6590455826157.gif';
+        }
+        else if (number == 8) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/b2/d6/b8/b2d6b839786a6843bb3c0ad88357ec5e.gif';
+        }
+        else if (number == 9) {
+            document.getElementById("img").src = 'https://i.pinimg.com/originals/e8/3c/ad/e83cad78b5ef4e07183d78ed1ef3e5ba.gif';
+        }
     }
-    else if(number==1){
-        document.getElementById("img").src='https://i.pinimg.com/originals/90/fe/97/90fe97c10b28b70a0caefd9866f22e6b.gif';
-    }
-    else if(number==2){   
-        document.getElementById("img").src='https://i.pinimg.com/originals/26/7f/ea/267fea8e5d973161c85c85e376a31333.gif';
-    }
-    else if(number==3){
-        document.getElementById("img").src='https://i.pinimg.com/originals/d6/28/8e/d6288e9f26d1a851f1b02ea0383bcfbb.gif';
-    }
-    else if(number==4){
-        document.getElementById("img").src='https://i.pinimg.com/originals/40/9d/5e/409d5e5f8b5041230fdc833bc09e057e.gif';
-    }
-    else if(number==5){
-        document.getElementById("img").src='https://i.pinimg.com/originals/ac/52/55/ac5255d362851dd119c2e8dea9b2c2e3.gif';
-    }
-    else if(number==6){
-        document.getElementById("img").src='https://i.pinimg.com/originals/8e/6a/b2/8e6ab2c69dfb0ead956a72066d08763f.gif';
-    }
-    else if(number==7){
-        document.getElementById("img").src='https://i.pinimg.com/originals/89/e7/04/89e704668cc717794fd6590455826157.gif';
-    }
-    else if(number==8){
-        document.getElementById("img").src='https://i.pinimg.com/originals/b2/d6/b8/b2d6b839786a6843bb3c0ad88357ec5e.gif';
-    }
-    else if(number==9){
-        document.getElementById("img").src='https://i.pinimg.com/originals/e8/3c/ad/e83cad78b5ef4e07183d78ed1ef3e5ba.gif';
-    }
+
+    GetGIF();
 
 
     let getJoke = () => {
@@ -162,8 +165,10 @@
             .then(jokes => {
                 jokecon.innerText = `${jokes.joke}`;
             });
+        number = "";
+        number = Math.floor(Math.random() * 9);
+        GetGIF(number); 
     }
-    btn.addEventListener('click', getJoke);
     getJoke();
 
 </script>
